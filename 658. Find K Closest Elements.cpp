@@ -16,7 +16,7 @@ public:
             return vector<int> (arr.begin() + left, arr.begin() + right + 1);
         }
         
-        if (abs(*(it - 1) - x) <= abs(*it - x)) {
+        if (x - *(it - 1)  <= *it - x) {
             left = it - 1 - arr.begin();
             right = left;
         }
@@ -26,15 +26,15 @@ public:
         }
         // Main loop starts here
         while (right - left + 1 < k) {
-            if (left - 1 < 0)  {
+            if (left == 0)  {
                 right = k - 1;
                 break;
             }
-            else if (right + 1 == arr.size()) {
+            else if (right == arr.size() - 1) {
                 left = arr.size() - k;
                 break;
             }
-            if (abs(arr[left - 1] - x) <= abs(arr[right + 1] - x)) {
+            if (x - arr[left - 1]  <= arr[right + 1] - x) {
                 left --;
             }
             else {
