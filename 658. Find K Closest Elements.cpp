@@ -3,7 +3,6 @@ public:
     vector<int> findClosestElements(vector<int>& arr, int k, int x) {
         auto it = lower_bound(arr.begin(), arr.end(), x);
         int left, right;
-        vector<int> res;
         
         // First we find the closest element, initialize both left and right to that closest element's index, then increment left or right from there
         if (it == arr.end()) { // Test for Edge cases
